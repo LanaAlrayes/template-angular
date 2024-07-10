@@ -5,9 +5,9 @@ import { FrontLayoutComponent } from './layouts/front-layout/front-layout.compon
 
 const routes: Routes = [
   {
-    path: 'front', component: FrontLayoutComponent,
+    path: '', component: FrontLayoutComponent,
     children: [
-      { path: 'home', loadChildren: () => import('./views/front/home/home.module').then(m => m.HomeModule) },
+      { path: '', loadChildren: () => import('./views/front/home/home.module').then(m => m.HomeModule) },
       { path: 'loginuser', loadChildren: () => import('./views/front/loginuser/loginuser.module').then(m => m.LoginuserModule) },
       { path: 'register', loadChildren: () => import('./views/front/register/register.module').then(m => m.RegisterModule) },
     ]
