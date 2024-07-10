@@ -18,6 +18,7 @@ const routes: Routes = [
       { path: 'dashboard', loadChildren: () => import('./views/admin/dashboard/dashboard.module').then(m => m.DashboardModule) },
       { path: 'loginadmin', loadChildren: () => import('./views/admin/loginadmin/loginadmin.module').then(m => m.LoginadminModule) },
       { path: 'allstudents', loadChildren: () => import('./views/admin/allstudents/allstudents.module').then(m => m.AllstudentsModule) },
+      { path: 'addstudents', loadChildren: () => import('./views/admin/addstudents/addstudents.module').then(m => m.AddstudentsModule) },
     ]
   },
 ];
