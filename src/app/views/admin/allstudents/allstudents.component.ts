@@ -8,9 +8,16 @@ import { DataService } from '../../services/data.service';
 })
 export class AllstudentsComponent {
 
-  dataArray: any
+  dataArray: any = []
   constructor(private serve: DataService) {
     this.serve.getAllstudents().subscribe(data => this.dataArray = data)
+  }
+
+  delete(id: any, i: number) {
+    this.serve.deletestudent(id).subscribe(response => {
+      console.log(response)
+      this.dataArray.splice(i, 1)
+    })
   }
 
 }

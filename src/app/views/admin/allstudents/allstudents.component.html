@@ -23,10 +23,10 @@
         >
           <thead>
             <tr>
-              <th>id</th>
+              <th>Id</th>
               <th>Name</th>
-              <th>username</th>
-              <th>email</th>
+              <th>User Name</th>
+              <th>Email</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -40,14 +40,17 @@
             </tr>
           </tfoot>
           <tbody>
-            <tr *ngFor="let item of dataArray">
+            <tr *ngFor="let item of dataArray; index as i">
               <td>{{ item.id }}</td>
               <td>{{ item.name }}</td>
               <td>{{ item.username }}</td>
               <td>{{ item.email }}</td>
               <td>
+                
                 <button class="btn btn-info">Details</button>
-                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-danger" (click)="delete(item.id, i)">
+                  Delete
+                </button>
               </td>
             </tr>
           </tbody>

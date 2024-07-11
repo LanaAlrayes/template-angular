@@ -15,6 +15,8 @@ export class DataService {
   Addstudents(profile: any) {
     return this.http.post('https://jsonplaceholder.typicode.com/users', profile)
   }
-}
 
-// id:number,name:string ,username:string , email:string
+  deletestudent(id:any){
+    return this.http.delete('https://jsonplaceholder.typicode.com/users/id' +id)
+  }
+}
