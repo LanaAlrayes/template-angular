@@ -46,7 +46,13 @@
               <td>{{ item.username }}</td>
               <td>{{ item.email }}</td>
               <td>
-                
+                <button
+                  class="btn btn-success"
+                  data-toggle="modal" data-target="#exampleModal"
+                  (click)="getdata(item.id,item.name,item.username,item.email)"
+                >
+                  Update
+                </button>
                 <button class="btn btn-info">Details</button>
                 <button class="btn btn-danger" (click)="delete(item.id, i)">
                   Delete
@@ -60,3 +66,122 @@
   </div>
 </div>
 <!-- /.container-fluid -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <!-- form update start here -->
+        <form #f="ngForm" (ngSubmit)="updatenewStudent(f)">
+          <!-- name validation start here -->
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              [(ngModel)]="dataStudent.name" 
+              placeholder="name"
+              required
+              name="name"
+              #name="ngModel"
+              ngModel
+              minlength="2"
+              maxlength="20"
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="name.errors?.['required'] && name.touched"
+          >
+            First Name is required
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="name.errors?.['minlength'] && name.touched"
+          >
+            First Name must be minimum 2 caracter
+          </div>
+          <!-- name validation end here -->
+      
+          <!-- username validation start here -->
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              [(ngModel)]="dataStudent.username"
+              placeholder="username"
+              required
+              name="username"
+              #username="ngModel"
+              ngModel
+              minlength="2"
+              maxlength="20"
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="username.errors?.['required'] && username.touched"
+          >
+            Last Name is required
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="username.errors?.['minlength'] && username.touched"
+          >
+            Last Name must be minimum 2 caracter
+          </div>
+          <!-- username validation end here -->
+      
+          <!-- email validation start here -->
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              [(ngModel)]="dataStudent.email"
+              placeholder="name@example.com"
+              required
+              email
+              name="email"
+              #email="ngModel"
+              ngModel
+            />
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="email.errors?.['required'] && email.touched"
+          >
+            Email is required
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="email.errors?.['email'] && email.touched"
+          >
+            the input must be email not string
+          </div>
+          <!-- email validation end here -->
+          <div class="alert alert-success" *ngIf="messageSuccess">
+            {{messageSuccess}}
+          </div>
+          <button class="btn btn-primary" [disabled]="f.invalid">Update Student</button>
+        </form>
+        <!-- form update end here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

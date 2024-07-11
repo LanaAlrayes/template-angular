@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AllstudentsRoutingModule } from './allstudents-routing.module';
 import { AllstudentsComponent } from './allstudents.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AllstudentsComponent } from './allstudents.component';
   imports: [
     CommonModule,
     AllstudentsRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class AllstudentsModule { }

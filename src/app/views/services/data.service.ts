@@ -16,7 +16,11 @@ export class DataService {
     return this.http.post('https://jsonplaceholder.typicode.com/users', profile)
   }
 
-  deletestudent(id:any){
-    return this.http.delete('https://jsonplaceholder.typicode.com/users/id' +id)
+  deletestudent(id: any) {
+    return this.http.delete('https://jsonplaceholder.typicode.com/users' + id)
+  }
+
+  updateStudent(id: string, newProfile: any) {
+    return this.http.patch('https://jsonplaceholder.typicode.com/users' + id, newProfile)
   }
 }
