@@ -4,6 +4,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { FrontLayoutComponent } from './front-layout/front-layout.component';
 import { RouterModule } from '@angular/router';
 import { AuthAdminLayoutComponent } from './auth-admin-layout/auth-admin-layout.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { AuthAdminLayoutComponent } from './auth-admin-layout/auth-admin-layout.
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class LayoutsModule { }

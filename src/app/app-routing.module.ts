@@ -23,6 +23,9 @@ const routes: Routes = [
       { path: 'addstudents', loadChildren: () => import('./views/admin/addstudents/addstudents.module').then(m => m.AddstudentsModule) },
     ]
   },
+  {
+    path:'authadmin', component:AuthAdminLayoutComponent
+  }
   
 ];
 
