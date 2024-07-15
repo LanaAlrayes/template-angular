@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+
+
   constructor(private http: HttpClient) { }
 
   getAllstudents() {
@@ -22,5 +24,9 @@ export class DataService {
 
   updateStudent(id: string, newProfile: any) {
     return this.http.patch('https://jsonplaceholder.typicode.com/users' + id, newProfile)
+  }
+
+  getOnestudent(id:any){
+    return this.http.get('https://jsonplaceholder.typicode.com/users' + id)
   }
 }
