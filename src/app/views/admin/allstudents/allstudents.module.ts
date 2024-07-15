@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     AllstudentsRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class AllstudentsModule { }
