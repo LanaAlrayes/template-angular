@@ -7,9 +7,6 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class AuthadminService {
 
-
-  IsLoggedIn: boolean = false
-
   helper = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
@@ -19,11 +16,7 @@ export class AuthadminService {
   }
 
   saveDataProfil(token: any) {
-
-    // let decodeToken = this.helper.decodeToken(token)
-
     localStorage.setItem('token', token)
-    // console.log(decodeToken)
   }
 
   getUsername() {
@@ -34,10 +27,12 @@ export class AuthadminService {
 
   loggedIn() {
     let token: any = localStorage.getItem('token')
+    if (!token) {
+      return false
+    }
+    
     let decodeToken = this.helper.decodeToken(token)
-    let role = decodeToken.role
-
-    if (role !== 'admin') {
+    if (decodeToken.role !== 'admin') {
       return false
     }
 

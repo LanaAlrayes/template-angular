@@ -10,12 +10,12 @@ import { AuthadminService } from 'src/app/views/services/authadmin.service';
 export class AdminLayoutComponent {
   username: any
 
-  constructor(private asd: AuthadminService, private route: Router) {
-    if (!localStorage.getItem('token')) {
-      this.route.navigate(['/login'])
-    }
-    
+  constructor(private asd: AuthadminService, private route: Router) {    
     this.username = asd.getUsername()
-    console.log(this.asd.loggedIn())
+  }
+
+  logout(){
+    localStorage.removeItem('token')
+    this.route.navigate(['/login'])
   }
 }
