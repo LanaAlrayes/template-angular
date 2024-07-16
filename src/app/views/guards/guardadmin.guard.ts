@@ -7,7 +7,7 @@ import { AuthadminService } from '../services/authadmin.service';
   providedIn: 'root'
 })
 export class GuardadminGuard implements CanActivate {
-  constructor(private as: AuthadminService , private router:Router) { }
+  constructor(private as: AuthadminService, private router: Router) { }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -16,7 +16,7 @@ export class GuardadminGuard implements CanActivate {
       if (this.as.loggedIn() == true) {
         resolve(true)
       } else {
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } })
         resolve(false)
       }
 
