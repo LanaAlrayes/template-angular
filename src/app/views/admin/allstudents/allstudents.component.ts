@@ -25,10 +25,9 @@ export class AllstudentsComponent {
   }
 
   delete(id: any, i: number) {
-    this.serve.deletestudent(id).subscribe(response => {
-      console.log(response)
+    this.serve.deletestudent(id).subscribe(
       this.dataArray.splice(i, 1)
-    })
+    )
   }
 // get old data
   getdata(id: string, name: string, username: string, email: string) {
