@@ -17,11 +17,5 @@ export class AdminLayoutComponent {
     
     this.username = asd.getUsername()
     console.log(this.asd.loggedIn())
-
-    if (this.asd.loggedIn() == true) {
-      console.log('connected')
-    } else {
-      this.route.navigate(['/login'])
-    }
   }
 }
