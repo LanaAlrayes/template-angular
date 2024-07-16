@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthadminService } from 'src/app/views/services/authadmin.service';
 
 @Component({
@@ -9,7 +10,18 @@ import { AuthadminService } from 'src/app/views/services/authadmin.service';
 export class AdminLayoutComponent {
   username: any
 
-  constructor(private asd: AuthadminService) {
-    this.username = asd.getUsername
+  constructor(private asd: AuthadminService, private route: Router) {
+    if (!localStorage.getItem('token')) {
+      this.route.navigate(['/login'])
+    }
+    
+    this.username = asd.getUsername()
+    console.log(this.asd.loggedIn())
+
+    if (this.asd.loggedIn() == true) {
+      console.log('connected')
+    } else {
+      this.route.navigate(['/login'])
+    }
   }
 }

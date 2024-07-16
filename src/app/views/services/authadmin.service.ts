@@ -20,7 +20,7 @@ export class AuthadminService {
 
   saveDataProfil(token: any) {
 
-    let decodeToken = this.helper.decodeToken(token)
+    // let decodeToken = this.helper.decodeToken(token)
 
     localStorage.setItem('token', token)
     // console.log(decodeToken)
@@ -32,7 +32,18 @@ export class AuthadminService {
     return decodeToken.username
   }
 
-  loggedIn(){
-    
+  loggedIn() {
+    let token: any = localStorage.getItem('token')
+    let decodeToken = this.helper.decodeToken(token)
+    let role = decodeToken.role
+
+    if (role !== 'admin') {
+      return false
+    }
+
+    if (this.helper.isTokenExpired(token)) {
+      return false
+    }
+    return true
   }
 }
