@@ -9,10 +9,13 @@ import { AuthadminService } from 'src/app/views/services/authadmin.service';
 export class AuthAdminLayoutComponent implements OnInit {
   dataReceived: any
   url: any
-  constructor(private asd: AuthadminService, private route: Router , private aruter:ActivatedRoute) { }
+
+  constructor(private asd: AuthadminService, private route: Router, private arouter: ActivatedRoute) { }
+
 
   ngOnInit() {
-    this.url=this.aruter.snapshot.queryParams['returnUrl']  || '/admin/'
+    this.url = this.arouter.snapshot.queryParams['returnUrl'] || '/admin/'
+    // console.log(this.url)
   }
 
   loginadmin(f: any) {
@@ -22,7 +25,8 @@ export class AuthAdminLayoutComponent implements OnInit {
       this.dataReceived = response
       this.asd.saveDataProfil(this.dataReceived.token)
 
-      this.route.navigate(['/admin'])
+      // this.route.navigate(['/admin'])
+      this.route.navigate([this.url])
 
       // console.log(this.dataReceived)
     }, err => console.log('error'))
