@@ -17,6 +17,7 @@ export class GuardadminGuard implements CanActivate {
         resolve(true)
       } else {
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } })
+        localStorage.removeItem('token')
         resolve(false)
       }
 
