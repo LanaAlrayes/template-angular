@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'loginuser', loadChildren: () => import('./views/front/loginuser/loginuser.module').then(m => m.LoginuserModule) },
       { path: 'register', loadChildren: () => import('./views/front/register/register.module').then(m => m.RegisterModule) },
       { path: 'student', loadChildren: () => import('./views/front/student/student.module').then(m => m.StudentModule) },
+      { path: 'student/:id', loadChildren: () => import('./views/front/studentdetails/studentdetails.module').then(m => m.StudentdetailsModule) },
     ]
   },
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', loadChildren: () => import('./views/admin/dashboard/dashboard.module').then(m => m.DashboardModule) },
       { path: 'allstudents', loadChildren: () => import('./views/admin/allstudents/allstudents.module').then(m => m.AllstudentsModule) },
-      { path: 'studentdetails', loadChildren: () => import('./views/admin/studentdetails/studentdetails.module').then(m => m.StudentdetailsModule) },
+      { path: 'studentdetails/:id', loadChildren: () => import('./views/admin/studentdetails/studentdetails.module').then(m => m.StudentdetailsModule) },
       { path: 'addstudents', loadChildren: () => import('./views/admin/addstudents/addstudents.module').then(m => m.AddstudentsModule) },
     ]
   },
