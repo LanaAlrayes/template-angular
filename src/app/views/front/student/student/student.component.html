@@ -1,1 +1,27 @@
-<p>student works!</p>
+<!-- Contact -->
+<div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+  <div class="w3-container" id="contact" style="margin-top: 75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>All Student</b></h1>
+    <hr style="width: 150px; border: 5px solid red" class="w3-round" />
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataArray">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.username }}</td>
+          <td>{{ item.email }}</td>
+          <td><button class="btn btn-info">Details</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End page content -->

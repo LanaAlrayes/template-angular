@@ -21,8 +21,12 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
+  // getAllstudents() {
+  //   return this.http.get(`${environment.urlBackend}`, { headers: this.headerall, params: this.params })
+  // }
+
   getAllstudents() {
-    return this.http.get(`${environment.urlBackend}`, { headers: this.headerall, params: this.params })
+    return this.http.get(`${environment.urlBackend}`)
   }
 
   Addstudents(profile: any) {
