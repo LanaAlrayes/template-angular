@@ -2,5 +2,5 @@ export const environment = {
     production: true,
     secret: 'winopapa',
     client: '123456789',
-    urlBackend: 'https://jsonplaceholder.typicode.com/'
+    urlBackend: 'https://jsonplaceholder.typicode.com/users/'
 };
