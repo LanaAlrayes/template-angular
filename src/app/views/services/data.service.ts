@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class DataService {
     .set('role', 'admin ')
 
   params = new HttpParams()
-    .set('secret', 'wiopapa')
-    .set('client', '12456987')
+    .set('secret', environment.secret)
+    .set('client', environment.client)
 
   headerall = new HttpHeaders()
     .set('authorization', this.token)
@@ -21,22 +22,22 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getAllstudents() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users', { headers: this.headerall, params: this.params })
+    return this.http.get(`${environment.urlBackend}`, { headers: this.headerall, params: this.params })
   }
 
   Addstudents(profile: any) {
-    return this.http.post('https://jsonplaceholder.typicode.com/users', profile, { headers: this.headerAdmin, params: this.params })
+    return this.http.post(`${environment.urlBackend}`, profile, { headers: this.headerAdmin, params: this.params })
   }
 
   deletestudent(id: any) {
-    return this.http.delete('https://jsonplaceholder.typicode.com/users' + id, { headers: this.headerAdmin, params: this.params })
+    return this.http.delete(`${environment.urlBackend}` + id, { headers: this.headerAdmin, params: this.params })
   }
 
   updateStudent(id: string, newProfile: any) {
-    return this.http.patch('https://jsonplaceholder.typicode.com/users' + id, newProfile, { headers: this.headerAdmin, params: this.params })
+    return this.http.patch(`${environment.urlBackend}` + id, newProfile, { headers: this.headerAdmin, params: this.params })
   }
 
   getOnestudent(id: any) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users' + id, { headers: this.headerall, params: this.params })
+    return this.http.get(`${environment.urlBackend}` + id, { headers: this.headerall, params: this.params })
   }
 }
