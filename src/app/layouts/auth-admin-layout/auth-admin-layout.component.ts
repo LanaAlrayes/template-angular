@@ -11,7 +11,11 @@ export class AuthAdminLayoutComponent implements OnInit {
   url: any
   messageAuthError: any
 
-  constructor(private asd: AuthadminService, private route: Router, private arouter: ActivatedRoute) { }
+  constructor(private asd: AuthadminService, private route: Router, private arouter: ActivatedRoute) { 
+    if(this.asd.loggedIn()==true){
+      this.route.navigate(['/admin/dashboard'])
+    }
+  }
 
   ngOnInit() {
     this.url = this.arouter.snapshot.queryParams['returnUrl'] || '/admin/'

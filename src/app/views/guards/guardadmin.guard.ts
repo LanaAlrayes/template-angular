@@ -20,8 +20,6 @@ export class GuardadminGuard implements CanActivate {
         localStorage.removeItem('token')
         resolve(false)
       }
-
     })
   }
-
 }
