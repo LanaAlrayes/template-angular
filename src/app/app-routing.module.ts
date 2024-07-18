@@ -12,6 +12,7 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('./views/front/home/home.module').then(m => m.HomeModule) },
       { path: 'loginuser', loadChildren: () => import('./views/front/loginuser/loginuser.module').then(m => m.LoginuserModule) },
       { path: 'register', loadChildren: () => import('./views/front/register/register.module').then(m => m.RegisterModule) },
+      { path: 'student', loadChildren: () => import('./views/front/student/student.module').then(m => m.StudentModule) },
     ]
   },
   {
