@@ -9,9 +9,9 @@ import { AuthadminService } from 'src/app/views/services/authadmin.service';
 export class AuthAdminLayoutComponent implements OnInit {
   dataReceived: any
   url: any
+  messageAuthError: any
 
   constructor(private asd: AuthadminService, private route: Router, private arouter: ActivatedRoute) { }
-
 
   ngOnInit() {
     this.url = this.arouter.snapshot.queryParams['returnUrl'] || '/admin/'
@@ -29,9 +29,6 @@ export class AuthAdminLayoutComponent implements OnInit {
       this.route.navigate([this.url])
 
       // console.log(this.dataReceived)
-    }, err => console.log('error'))
+    }, err => this.messageAuthError = "invalid email and password")
   }
 }
-
-
-
