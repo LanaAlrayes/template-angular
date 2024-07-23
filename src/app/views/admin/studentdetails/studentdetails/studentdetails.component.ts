@@ -9,15 +9,15 @@ import { DataService } from 'src/app/views/services/data.service';
   styleUrls: ['./studentdetails.component.css']
 })
 export class StudentdetailsComponent {
-  id=''
-  dataObject:any
-  messageErr=''
-  constructor(private route:ActivatedRoute , private ds:DataService ){
-    // this.route.params.subscribe(params=> this.id=params.id)
+  id = ''
+  dataObject: any
+  messageErr = ''
+  constructor(private route: ActivatedRoute, private ds: DataService) {
+    this.route.params.subscribe(params => this.id = params['id'])
 
-    this.ds.getOnestudent(this.id).subscribe(res=>this.dataObject=res
-      ,(err:HttpErrorResponse)=>
-      this.messageErr='error')
+    this.ds.getOnestudent(this.id).subscribe(res => this.dataObject = res
+      , (err: HttpErrorResponse) =>
+        this.messageErr = 'error')
   }
 
 }
