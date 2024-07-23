@@ -42,6 +42,7 @@ export class DataService {
   }
 
   getOnestudent(id: any) {
-    return this.http.get(`${environment.urlBackend}` + id, { headers: this.headerall, params: this.params })
+    // return this.http.get(`${environment.urlBackend}` + id, { headers: this.headerall, params: this.params })
+    return this.http.get(`${environment.urlBackend}` + id)
   }
 }
