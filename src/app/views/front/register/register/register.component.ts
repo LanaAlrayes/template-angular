@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthuserService } from 'src/app/views/services/authuser.service';
 
@@ -8,10 +8,13 @@ import { AuthuserService } from 'src/app/views/services/authuser.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   messageError: any
 
   constructor(private aus: AuthuserService, private router: Router) { }
+  ngOnInit() {
+    // this.register(f)
+  }
 
 
   register(f: any) {

@@ -4,6 +4,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AuthAdminLayoutComponent } from './layouts/auth-admin-layout/auth-admin-layout.component';
 import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component';
 import { GuardadminGuard } from './views/guards/guardadmin.guard';
+import { GuarduserGuard } from './views/guards/guarduser.guard';
 
 const routes: Routes = [
   {
@@ -12,8 +13,8 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('./views/front/home/home.module').then(m => m.HomeModule) },
       { path: 'loginuser', loadChildren: () => import('./views/front/loginuser/loginuser.module').then(m => m.LoginuserModule) },
       { path: 'register', loadChildren: () => import('./views/front/register/register.module').then(m => m.RegisterModule) },
-      { path: 'student', loadChildren: () => import('./views/front/student/student.module').then(m => m.StudentModule) },
-      { path: 'student/:id', loadChildren: () => import('./views/front/studentdetails/studentdetails.module').then(m => m.StudentdetailsModule) },
+      { path: 'student', loadChildren: () => import('./views/front/student/student.module').then(m => m.StudentModule), canActivateChild: [GuarduserGuard] },
+      { path: 'student/:id', loadChildren: () => import('./views/front/studentdetails/studentdetails.module').then(m => m.StudentdetailsModule), canActivateChild: [GuarduserGuard] },
     ]
   },
   {
